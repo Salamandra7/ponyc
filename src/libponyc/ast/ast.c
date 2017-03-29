@@ -14,6 +14,10 @@
 #include <stdio.h>
 #include <string.h>
 
+#include <execinfo.h>
+#include <unistd.h>
+typedef int stack_depth_t;
+
 
 /* Every AST node has a parent field, which points to the parent node when
  * there is one. However, sometimes we want a node to have no actual parent,
@@ -342,6 +346,22 @@ static ast_t* duplicate(ast_t* parent, ast_t* ast)
   n->flags = ast->flags & AST_ALL_FLAGS;
   // We don't actually want to copy the orphan flag, but the following if
   // always explicitly sets or clears it.
+
+  if((ast_pos(ast) == 47) && (ast_id(ast) == TK_PARAM) && (ast_name(ast_child(ast)) == stringtab("qty")) && ((ast->flags & AST_FLAG_PASS_MASK) > 7))
+  {
+    printf("pass: %i %p\n", ast->flags & AST_FLAG_PASS_MASK, n);
+
+  void* addrs[256];
+  stack_depth_t depth = backtrace(addrs, 256);
+  char** strings = backtrace_symbols(addrs, depth);
+
+  fputs("Backtrace:\n", stderr);
+
+  for(stack_depth_t i = 0; i < depth; i++)
+    printf("  %s\n", strings[i]);
+
+    // pony_assert("ARGHHH" == NULL);
+  }
 
   if(parent == NULL)
     set_scope_no_parent(n, ast->parent);

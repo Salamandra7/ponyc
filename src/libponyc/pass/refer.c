@@ -340,6 +340,16 @@ bool refer_reference(pass_opt_t* opt, ast_t** astp)
         return false;
 
       ast_setid(ast, TK_PARAMREF);
+
+      if(ast_name(ast_child(def)) == stringtab("qty"))
+      {
+        printf("refer to param: %zu %p\n", ast_pos(def), def);
+        ast_print(def);
+
+        printf("refer paramref: %zu %p\n", ast_pos(ast), ast);
+        ast_print(ast);
+      }
+
       return true;
     }
 
