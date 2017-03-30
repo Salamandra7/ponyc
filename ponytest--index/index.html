@@ -3689,6 +3689,10 @@ the names of the test classes in the Pony source code.</p>
 <p>Arbitrary strings can be used for these names, but for large projects it is
 strongly recommended to use a hierarchical naming scheme to make it easier to
 select groups of tests.</p>
+<p>You can skip any tests whose names start with a given string by using the
+<code>--exclude=[prefix]</code> command line option.</p>
+<p>You can run only tests whose names start with a given string by using the
+<code>--only=[prefix]</code> command line option.</p>
 <h2 id="aggregation">Aggregation</h2>
 <p>Often it is desirable to run a collection of unit tests from multiple different
 source files. For example, if several packages within a bundle each have their
