@@ -2563,14 +2563,6 @@
                     
     <a class="" href="../net-http-HTTPServer/">actor HTTPServer</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../net-http-HTTPSession/">interface HTTPSession</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../net-http-HandlerFactory/">interface HandlerFactory</a>
-                </li>
                 <li class=" current">
                     
     <a class="current" href="./">interface HTTPHandler</a>
@@ -2586,6 +2578,10 @@
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../net-http-HandlerFactory/">interface HandlerFactory</a>
                 </li>
                 <li class="">
                     
@@ -2650,6 +2646,10 @@
                 <li class="">
                     
     <a class="" href="../net-http-Payload/">class Payload</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../net-http-HTTPSession/">interface HTTPSession</a>
                 </li>
                 <li class="">
                     
@@ -3620,7 +3620,10 @@ processing happens behind the interface will of course vary.</p>
 message (called a <code>Payload</code>).  Calls to these methods are made in
 the context of the <code>HTTPSession</code> actor so most of them should be
 passing data on to a processing actor.</p>
-<p>Each <code>HTTPSession</code> must have a unique instance of the handler.</p>
+<p>Each <code>HTTPSession</code> must have a unique instance of the handler.  The
+application code does not necessarily know when an <code>HTTPSession</code> is created,
+so the application must provide an instance of <code>HandlerFactory</code> that
+will be called at the appropriate time.</p>
 <pre><code class="pony">interface ref HTTPHandler
 </code></pre>
 
@@ -3712,10 +3715,10 @@ passing data on to a processing actor.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../net-http-DiscardLog/" class="btn btn-neutral float-right" title="primitive DiscardLog">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../net-http-HandlerFactory/" class="btn btn-neutral float-right" title="interface HandlerFactory">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../net-http-HandlerFactory/" class="btn btn-neutral" title="interface HandlerFactory"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../net-http-HTTPServer/" class="btn btn-neutral" title="actor HTTPServer"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -3741,10 +3744,10 @@ passing data on to a processing actor.</p>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../net-http-HandlerFactory/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../net-http-HTTPServer/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../net-http-DiscardLog/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../net-http-HandlerFactory/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

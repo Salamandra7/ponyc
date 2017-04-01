@@ -2581,15 +2581,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../net-http-HTTPSession/">interface HTTPSession</a>
+    <a class="" href="../net-http-HTTPHandler/">interface HTTPHandler</a>
                 </li>
                 <li class="">
                     
     <a class="" href="../net-http-HandlerFactory/">interface HandlerFactory</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../net-http-HTTPHandler/">interface HTTPHandler</a>
                 </li>
                 <li class="">
                     
@@ -2654,6 +2650,10 @@
                 <li class="">
                     
     <a class="" href="../net-http-Payload/">class Payload</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../net-http-HTTPSession/">interface HTTPSession</a>
                 </li>
                 <li class="">
                     
@@ -3737,7 +3737,9 @@ actor Main
 </ul>
 <hr />
 <h3 id="block">block</h3>
-<p>Return a block as a contiguous chunk of memory.</p>
+<p>Return a block as a contiguous chunk of memory.
+Will throw an error if you request a block larger than what is currently
+stored in the <code>Reader</code>.</p>
 <pre><code class="pony">fun ref block(
   len: USize val)
 : Array[U8 val] iso^ ?
