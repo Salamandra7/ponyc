@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>class Map - Pony Standard Library</title>
+  <title>type Map - Pony Standard Library</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "class Map";
+    var mkdocs_page_name = "type Map";
     var mkdocs_page_input_path = "collections-persistent-Map.md";
     var mkdocs_page_url = "/collections-persistent-Map/";
   </script>
@@ -982,25 +982,27 @@
                 </li>
                 <li class=" current">
                     
-    <a class="current" href="./">class Map</a>
+    <a class="current" href="./">type Map</a>
     <ul class="subnav">
             
     <li class="toctree-l3"><a href="#map91k-hashable-val-equatable91k-val93-v-any-share93">Map[K: (Hashable val &amp; Equatable[K val]), V: Any #share]</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#usage">Usage</a></li>
-        
-            <li><a class="toctree-l4" href="#constructors">Constructors</a></li>
-        
-            <li><a class="toctree-l4" href="#public-functions">Public Functions</a></li>
-        
-            <li><a class="toctree-l4" href="#private-functions">Private Functions</a></li>
+            <li><a class="toctree-l4" href="#type-alias-for">Type Alias For</a></li>
         
         </ul>
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-persistent-MapIs/">type MapIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-persistent-HashMap/">class HashMap</a>
                 </li>
                 <li class="">
                     
@@ -3605,7 +3607,7 @@
         
       
     
-    <li>class Map</li>
+    <li>type Map</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -3616,203 +3618,14 @@
             <div class="section">
               
                 <h1 id="map91k-hashable-val-equatable91k-val93-v-any-share93">Map[K: (<a href="../collections-Hashable">Hashable</a> val &amp; <a href="../builtin-Equatable">Equatable</a>[K val]), V: <a href="../builtin-Any">Any</a> #share]</h1>
-<p>A persistent map based on the Compressed Hash Array Mapped Prefix-tree from
-'Optimizing Hash-Array Mapped Tries for Fast and Lean Immutable JVM
-Collections' by Michael J. Steindorfer and Jurgen J. Vinju</p>
-<h2 id="usage">Usage</h2>
-<pre><code>let empty: Map[String,U32] = Maps.empty[String,U32]() // {}
-// Update returns a new map with the provided key set
-// to the provided value. The old map is unchanged.
-let m2 = m1(&quot;a&quot;) = 5 // {a: 5}
-let m3 = m2(&quot;b&quot;) = 10 // {a: 5, b: 10}
-let m4 = m3.remove(&quot;a&quot;) // {b: 10}
-// You can create a new map from key value pairs.
-let map = Maps.from[String,U32]([(&quot;a&quot;, 2), (&quot;b&quot;, 3)]) // {a: 2, b: 3}
+<p>A map that uses structural equality on the key.</p>
+<pre><code class="pony">type Map[K: (Hashable val &amp; Equatable[K val]), V: Any #share] is
+  HashMap[K val, V #share, HashEq[K val] val] val
 </code></pre>
 
-<pre><code class="pony">class val Map[K: (Hashable val &amp; Equatable[K val]), V: Any #share]
-</code></pre>
-
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
-<pre><code class="pony">new val create()
-: Map[K val, V #share] val^
-</code></pre>
-
-<h4 id="returns">Returns</h4>
+<h4 id="type-alias-for">Type Alias For</h4>
 <ul>
-<li><a href="../collections-persistent-Map">Map</a>[K val, V #share] val^</li>
-</ul>
-<hr />
-<h3 id="_create">_create</h3>
-<pre><code class="pony">new val _create(
-  r: _MapNode[K val, V #share] val,
-  s: USize val)
-: Map[K val, V #share] val^
-</code></pre>
-
-<h4 id="parameters">Parameters</h4>
-<ul>
-<li>r: <a href="../collections-persistent-_MapNode">_MapNode</a>[K val, V #share] val</li>
-<li>s: <a href="../builtin-USize">USize</a> val</li>
-</ul>
-<h4 id="returns_1">Returns</h4>
-<ul>
-<li><a href="../collections-persistent-Map">Map</a>[K val, V #share] val^</li>
-</ul>
-<hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="apply">apply</h3>
-<p>Attempt to get the value corresponding to k.</p>
-<pre><code class="pony">fun val apply(
-  k: K val)
-: V #share ?
-</code></pre>
-
-<h4 id="parameters_1">Parameters</h4>
-<ul>
-<li>k: K val</li>
-</ul>
-<h4 id="returns_2">Returns</h4>
-<ul>
-<li>V #share ?</li>
-</ul>
-<hr />
-<h3 id="size">size</h3>
-<p>Return the amount of key-value pairs in the Map.</p>
-<pre><code class="pony">fun val size()
-: USize val
-</code></pre>
-
-<h4 id="returns_3">Returns</h4>
-<ul>
-<li><a href="../builtin-USize">USize</a> val</li>
-</ul>
-<hr />
-<h3 id="update">update</h3>
-<p>Update the value associated with the provided key.</p>
-<pre><code class="pony">fun val update(
-  key: K val,
-  value: V #share)
-: Map[K val, V #share] val
-</code></pre>
-
-<h4 id="parameters_2">Parameters</h4>
-<ul>
-<li>key: K val</li>
-<li>value: V #share</li>
-</ul>
-<h4 id="returns_4">Returns</h4>
-<ul>
-<li><a href="../collections-persistent-Map">Map</a>[K val, V #share] val</li>
-</ul>
-<hr />
-<h3 id="remove">remove</h3>
-<p>Try to remove the provided key from the Map.</p>
-<pre><code class="pony">fun val remove(
-  k: K val)
-: Map[K val, V #share] val ?
-</code></pre>
-
-<h4 id="parameters_3">Parameters</h4>
-<ul>
-<li>k: K val</li>
-</ul>
-<h4 id="returns_5">Returns</h4>
-<ul>
-<li><a href="../collections-persistent-Map">Map</a>[K val, V #share] val ?</li>
-</ul>
-<hr />
-<h3 id="get_or_else">get_or_else</h3>
-<p>Get the value associated with provided key if present. Otherwise,
-return the provided alternate value.</p>
-<pre><code class="pony">fun val get_or_else(
-  k: K val,
-  alt: V #share)
-: V #share
-</code></pre>
-
-<h4 id="parameters_4">Parameters</h4>
-<ul>
-<li>k: K val</li>
-<li>alt: V #share</li>
-</ul>
-<h4 id="returns_6">Returns</h4>
-<ul>
-<li>V #share</li>
-</ul>
-<hr />
-<h3 id="contains">contains</h3>
-<p>Check whether the node contains the provided key.</p>
-<pre><code class="pony">fun val contains(
-  k: K val)
-: Bool val
-</code></pre>
-
-<h4 id="parameters_5">Parameters</h4>
-<ul>
-<li>k: K val</li>
-</ul>
-<h4 id="returns_7">Returns</h4>
-<ul>
-<li><a href="../builtin-Bool">Bool</a> val</li>
-</ul>
-<hr />
-<h3 id="concat">concat</h3>
-<p>Add the K, V pairs from the given iterator to the map.</p>
-<pre><code class="pony">fun val concat(
-  iter: Iterator[(K val , V #share)] ref)
-: Map[K val, V #share] val
-</code></pre>
-
-<h4 id="parameters_6">Parameters</h4>
-<ul>
-<li>iter: <a href="../builtin-Iterator">Iterator</a>[(K val , V #share)] ref</li>
-</ul>
-<h4 id="returns_8">Returns</h4>
-<ul>
-<li><a href="../collections-persistent-Map">Map</a>[K val, V #share] val</li>
-</ul>
-<hr />
-<h3 id="keys">keys</h3>
-<pre><code class="pony">fun val keys()
-: MapKeys[K val, V #share] ref
-</code></pre>
-
-<h4 id="returns_9">Returns</h4>
-<ul>
-<li><a href="../collections-persistent-MapKeys">MapKeys</a>[K val, V #share] ref</li>
-</ul>
-<hr />
-<h3 id="values">values</h3>
-<pre><code class="pony">fun val values()
-: MapValues[K val, V #share] ref
-</code></pre>
-
-<h4 id="returns_10">Returns</h4>
-<ul>
-<li><a href="../collections-persistent-MapValues">MapValues</a>[K val, V #share] ref</li>
-</ul>
-<hr />
-<h3 id="pairs">pairs</h3>
-<pre><code class="pony">fun val pairs()
-: MapPairs[K val, V #share] ref
-</code></pre>
-
-<h4 id="returns_11">Returns</h4>
-<ul>
-<li><a href="../collections-persistent-MapPairs">MapPairs</a>[K val, V #share] ref</li>
-</ul>
-<hr />
-<h2 id="private-functions">Private Functions</h2>
-<h3 id="_root_node">_root_node</h3>
-<pre><code class="pony">fun box _root_node()
-: _MapNode[K val, V #share] val
-</code></pre>
-
-<h4 id="returns_12">Returns</h4>
-<ul>
-<li><a href="../collections-persistent-_MapNode">_MapNode</a>[K val, V #share] val</li>
+<li><a href="../collections-persistent-HashMap">HashMap</a>[K val, V #share, <a href="../collections-HashEq">HashEq</a>[K val] val] val</li>
 </ul>
 <hr />
               
@@ -3822,7 +3635,7 @@ return the provided alternate value.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../collections-persistent-MapKeys/" class="btn btn-neutral float-right" title="class MapKeys">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../collections-persistent-MapIs/" class="btn btn-neutral float-right" title="type MapIs">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../collections-persistent-_TestMapVsMap/" class="btn btn-neutral" title="class _TestMapVsMap"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -3854,7 +3667,7 @@ return the provided alternate value.</p>
         <span><a href="../collections-persistent-_TestMapVsMap/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../collections-persistent-MapKeys/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../collections-persistent-MapIs/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -1000,7 +1000,15 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../collections-persistent-Map/">class Map</a>
+    <a class="" href="../collections-persistent-Map/">type Map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-persistent-MapIs/">type MapIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-persistent-HashMap/">class HashMap</a>
                 </li>
                 <li class="">
                     
@@ -4232,6 +4240,9 @@ Raise an error if there is no n-th occurrence of <code>s</code> or <code>s</code
 <h3 id="substring">substring</h3>
 <p>Returns a substring. Index range [<code>from</code> .. <code>to</code>) is half-open.
 Returns an empty string if nothing is in the range.</p>
+<p>Note that this operation allocates a new string to be returned. For
+similar operations that don't allocate a new string, see <code>trim</code> and
+<code>trim_in_place</code>.</p>
 <pre><code class="pony">fun box substring(
   from: ISize val,
   to: ISize val = call)

@@ -982,7 +982,15 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../collections-persistent-Map/">class Map</a>
+    <a class="" href="../collections-persistent-Map/">type Map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-persistent-MapIs/">type MapIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-persistent-HashMap/">class HashMap</a>
                 </li>
                 <li class="">
                     
@@ -1025,7 +1033,7 @@
     <a class="current" href="./">type _MapLeaf</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#_mapleaf91k-hashable-val-equatable91k-val93-v-any-share93">_MapLeaf[K: (Hashable val &amp; Equatable[K val]), V: Any #share]</a></li>
+    <li class="toctree-l3"><a href="#_mapleaf91k-any-share-v-any-share-h-hashfunction91k-share93-val93">_MapLeaf[K: Any #share, V: Any #share, H: HashFunction[K #share] val]</a></li>
     
         <ul>
         
@@ -3609,14 +3617,14 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="_mapleaf91k-hashable-val-equatable91k-val93-v-any-share93">_MapLeaf[K: (<a href="../collections-Hashable">Hashable</a> val &amp; <a href="../builtin-Equatable">Equatable</a>[K val]), V: <a href="../builtin-Any">Any</a> #share]</h1>
-<pre><code class="pony">type _MapLeaf[K: (Hashable val &amp; Equatable[K val]), V: Any #share] is
-  (K val , V #share)
+                <h1 id="_mapleaf91k-any-share-v-any-share-h-hashfunction91k-share93-val93">_MapLeaf[K: <a href="../builtin-Any">Any</a> #share, V: <a href="../builtin-Any">Any</a> #share, H: <a href="../collections-HashFunction">HashFunction</a>[K #share] val]</h1>
+<pre><code class="pony">type _MapLeaf[K: Any #share, V: Any #share, H: HashFunction[K #share] val] is
+  (K #share , V #share)
 </code></pre>
 
 <h4 id="type-alias-for">Type Alias For</h4>
 <ul>
-<li>(K val , V #share)</li>
+<li>(K #share , V #share)</li>
 </ul>
 <hr />
               

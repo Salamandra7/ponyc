@@ -982,7 +982,15 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../collections-persistent-Map/">class Map</a>
+    <a class="" href="../collections-persistent-Map/">type Map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-persistent-MapIs/">type MapIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-persistent-HashMap/">class HashMap</a>
                 </li>
                 <li class="">
                     
@@ -3924,7 +3932,7 @@ value from the iterator.</p>
 <p>Apply a function to every element, producing an accumulated value.</p>
 <h2 id="example_6">Example</h2>
 <pre><code class="pony">Iter[I64]([as I64: 1, 2, 3].values())
-  .fold[I64]({(x: I64, sum: I64): I64 =&gt; sum + x }, 0)
+  .fold[I64]({(sum: I64, x: I64): I64 =&gt; sum + x }, 0)
 </code></pre>
 
 <p><code>6</code></p>

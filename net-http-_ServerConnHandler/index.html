@@ -982,7 +982,15 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../collections-persistent-Map/">class Map</a>
+    <a class="" href="../collections-persistent-Map/">type Map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-persistent-MapIs/">type MapIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-persistent-HashMap/">class HashMap</a>
                 </li>
                 <li class="">
                     
@@ -3674,7 +3682,8 @@ manage further communication, and the message parser that feeds it.</p>
 then pass completed information on the the <code>HTTPSession</code>.</p>
 <pre><code class="pony">fun ref received(
   conn: TCPConnection ref,
-  data: Array[U8 val] iso)
+  data: Array[U8 val] iso,
+  times: USize val)
 : Bool val
 </code></pre>
 
@@ -3682,6 +3691,7 @@ then pass completed information on the the <code>HTTPSession</code>.</p>
 <ul>
 <li>conn: <a href="../net-TCPConnection">TCPConnection</a> ref</li>
 <li>data: <a href="../builtin-Array">Array</a>[<a href="../builtin-U8">U8</a> val] iso</li>
+<li>times: <a href="../builtin-USize">USize</a> val</li>
 </ul>
 <h4 id="returns_2">Returns</h4>
 <ul>

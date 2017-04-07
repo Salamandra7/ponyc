@@ -982,7 +982,15 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../collections-persistent-Map/">class Map</a>
+    <a class="" href="../collections-persistent-Map/">type Map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-persistent-MapIs/">type MapIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-persistent-HashMap/">class HashMap</a>
                 </li>
                 <li class="">
                     
@@ -993,7 +1001,7 @@
     <a class="current" href="./">class MapValues</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#mapvalues91k-hashable-val-equatable91k-val93-v-any-share93">MapValues[K: (Hashable val &amp; Equatable[K val]), V: Any #share]</a></li>
+    <li class="toctree-l3"><a href="#mapvalues91k-any-share-v-any-share-h-hashfunction91k-share93-val93">MapValues[K: Any #share, V: Any #share, H: HashFunction[K #share] val]</a></li>
     
         <ul>
         
@@ -3611,24 +3619,24 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="mapvalues91k-hashable-val-equatable91k-val93-v-any-share93">MapValues[K: (<a href="../collections-Hashable">Hashable</a> val &amp; <a href="../builtin-Equatable">Equatable</a>[K val]), V: <a href="../builtin-Any">Any</a> #share]</h1>
-<pre><code class="pony">class ref MapValues[K: (Hashable val &amp; Equatable[K val]), V: Any #share]
+                <h1 id="mapvalues91k-any-share-v-any-share-h-hashfunction91k-share93-val93">MapValues[K: <a href="../builtin-Any">Any</a> #share, V: <a href="../builtin-Any">Any</a> #share, H: <a href="../collections-HashFunction">HashFunction</a>[K #share] val]</h1>
+<pre><code class="pony">class ref MapValues[K: Any #share, V: Any #share, H: HashFunction[K #share] val]
 </code></pre>
 
 <h2 id="constructors">Constructors</h2>
 <h3 id="create">create</h3>
 <pre><code class="pony">new ref create(
-  m: Map[K val, V #share] val)
-: MapValues[K val, V #share] ref^
+  m: HashMap[K #share, V #share, H val] val)
+: MapValues[K #share, V #share, H val] ref^
 </code></pre>
 
 <h4 id="parameters">Parameters</h4>
 <ul>
-<li>m: <a href="../collections-persistent-Map">Map</a>[K val, V #share] val</li>
+<li>m: <a href="../collections-persistent-HashMap">HashMap</a>[K #share, V #share, H val] val</li>
 </ul>
 <h4 id="returns">Returns</h4>
 <ul>
-<li><a href="../collections-persistent-MapValues">MapValues</a>[K val, V #share] ref^</li>
+<li><a href="../collections-persistent-MapValues">MapValues</a>[K #share, V #share, H val] ref^</li>
 </ul>
 <hr />
 <h2 id="public-functions">Public Functions</h2>
